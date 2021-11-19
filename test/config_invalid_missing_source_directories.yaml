@@ -1,0 +1,5 @@
+spinoffs:
+    - example_app:
+        cli: borgmatic
+        repositories:
+            - 1234@usw-s001.rsync.net:backups.borg

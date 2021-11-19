@@ -1,0 +1,5 @@
+spinoffs:
+    - example_app:
+        cli: borgmatic
+        source_directories:
+            - /home/user

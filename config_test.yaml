@@ -1,0 +1,21 @@
+spinoffs:
+    - example_app:
+        cli: restic
+        source_directories:
+            - /home/user
+        repositories:
+            - 1234@usw-s001.rsync.net:backups.borg
+        retention:
+            keep_daily: 7
+            keep_weekly: 4
+            keep_monthly: 6
+    - example_service:
+        cli: borgmatic
+        source_directories:
+            - /home/user
+        repositories:
+            - 1234@usw-s001.rsync.net:backups.borg
+        retention:
+            keep_daily: 7
+            keep_weekly: 4
+            keep_monthly: 6

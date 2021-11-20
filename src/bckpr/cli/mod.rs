@@ -1,11 +1,11 @@
 use super::config;
 
-pub fn call_borgmatic() {
-    println!("cli::call_borgmatic()");
+pub fn call_rsync() {
+    println!("cli::call_rsync()");
 }
 
-pub fn call_restic() {
-    println!("cli::call_restic()");
+pub fn call_scp() {
+    println!("cli::scp()");
 }
 
 #[cfg(test)]

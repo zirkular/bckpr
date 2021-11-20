@@ -4,30 +4,15 @@ use std::fs;
 use yaml_rust::{Yaml, YamlLoader, YamlEmitter};
 
 pub enum CLI {
-    Borgmatic,
-    Restic,
+    RSync,
+    SCP,
     Unknown
 }
 
-pub struct Retention {
-    pub keep_daily: i64,
-    pub keep_weekly: i64,
-    pub keep_monthly: i64,
-}
-
-impl Default for Retention {
-    fn default() -> Self {
-        Retention {
-            keep_daily: 7,
-            keep_weekly: 4,
-            keep_monthly: 6,
-        }
-    }
-}
-
 pub struct Spinoff {
-    pub cli: CLI,
-    pub retention: Retention,
+    pub path: Path,
+    pub incoming: Vec<Path>,
+    pub outgoing: Vec<Path>,
 }
 
 pub struct Config {
@@ -144,7 +129,7 @@ pub fn parse_config(yaml: &Vec<Yaml>) -> Result<Config, &str> {
                         },
                     }
 
-                    let retention: Retention = Default::default();                    
+                    let retention: Retention = ;                    
                     let spinoff = Spinoff {
                         cli: match yaml::cli(value).as_str().unwrap() {
                             "borgmatic" => CLI::Borgmatic,
